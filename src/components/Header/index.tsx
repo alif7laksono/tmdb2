@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getGenres, getMoviesByGenre } from "../../services/tmdbServices";
 import { Genre, Movie } from "../../types/Movie";
+import { FaSearch } from "react-icons/fa";
 import MoviesByGenre from "../MoviesByGenre";
 
 interface HeaderProps {
@@ -37,14 +38,23 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
             TMDB Movies
           </Link>
         </h1>
-        <form onSubmit={handleSearch} className="md:mt-0 md:ml-4">
+        <form
+          onSubmit={handleSearch}
+          className="md:mt-0 md:ml-4 justify-center items-center flex"
+        >
           <input
-            className="w-full md:w-auto p-2 rounded bg-gray-700 text-white"
+            className="w-full md:w-auto p-2 rounded-l bg-gray-700 text-white"
             type="search"
             placeholder="Search movies..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
+          <button
+            type="submit"
+            className="p-2 rounded-r bg-gray-700 text-white hover:bg-gray-600 flex items-center justify-center"
+          >
+            <FaSearch className="text-2xl" />
+          </button>
         </form>
       </div>
       <div className="flex lg:space-x-4 md:space-x-2 space-x-1 overflow-x-auto scrollbar-hide">
