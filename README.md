@@ -1,3 +1,5 @@
+Movie Search App using TMDB Api
+
 # Getting Started with Create React App
 
 DEMO APP : https://tmdb2-one.vercel.app/
